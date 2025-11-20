@@ -19,5 +19,9 @@ jobs:
           run: |
             ls
 
-      
+        - name: build a docker image using the dockerfile in root directory
+          run : |
+            sudo docker build -t olaranmmy/cicd_folio
+            
+
 
