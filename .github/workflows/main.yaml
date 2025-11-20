@@ -7,10 +7,17 @@ jobs:
     deployment:
         runs-on: ubuntu-latest
         steps:
-        - name: "say hello"
-          run: |
-            echo "hello"
 
+        - name: List the directory
+          run: |
+            ls
+
+        - name: List the directory
+          uses: actions/checkout@v4
+
+        - name: List the directory again
+          run: |
+            ls
 
       
 
