@@ -23,5 +23,15 @@ jobs:
           run : |
             sudo docker build -t olaranmmy/cicd_folio .
 
+        - name: Login to dockerhub
+          run: 
+            sudo docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+
+        - name: verify if loggedin by listing by listing all images
+          run: |
+            sudo docker images
+
+
+
 
 
