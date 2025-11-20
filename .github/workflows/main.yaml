@@ -32,8 +32,8 @@ jobs:
             sudo docker images
 
         - name: push the image built to dockerhub
-          run: 
-            sudo docker push olaranmmy/cicd/cicd_folio: v1 
+          run: |
+            sudo docker push olaranmmy/cicd_folio: v1 
 
 
 
