@@ -35,6 +35,11 @@ jobs:
           run: |
             sudo docker push olaranmmy/cicd_folio:latest
 
+        - name: SSH into the instance created
+          run: |
+            echo ${{ secrets.SSH_KEY }} > cicd_folio.pem
+            ssh -i "cicd_folio.pem" ubuntu@ec2-13-62-76-160.eu-north-1.compute.amazonaws.com
+
 
 
 
