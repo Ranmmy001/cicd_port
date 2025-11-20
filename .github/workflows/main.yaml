@@ -2,12 +2,15 @@ name: "cicd_folio"
 on:
     push:
         branches:
-            -master
+        - master
 jobs:
     deployment:
-        runs-on: ubuntu latest
+        runs-on: ubuntu-latest
         steps:
-            -name: say hello
-             run: |
-               echo "hello"
+        - name: "say hello"
+          run: |
+            echo "hello"
+
+
+      
 
