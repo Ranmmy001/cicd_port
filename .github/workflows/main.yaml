@@ -37,16 +37,14 @@ jobs:
 
         - name: SSH into the instance created
           run: |
-            echo ${{ secrets.SSH_KEY }} > cicd_folio.pem
-            ssh -i "cicd_folio.pem" -o StrictHostKeyChecking=no ubuntu@ec2-13-62-76-160.eu-north-1.compute.amazonaws.com
+            echo "${{ secrets.SSH_KEY }}" >> "sshKey.pem"
+            chmod 400 "sshKey.pem"
+            ssh -i "sshKey.pem" -o StrictHostKeyChecking=no ubuntu@13.60.250.87
+            docker --version
 
 
 
-         # fjdavan
-
-
-
-
+    
 
 
 
