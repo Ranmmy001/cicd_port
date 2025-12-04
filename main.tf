@@ -34,6 +34,26 @@ resource "aws_security_group" "basic_ssh" {
   
 }
 
+resource "aws_security_group" "basic_http" {
+    name        = "basic http"
+    description = "allow all tcp for testing"
+
+    ingress {
+        from_port   = 0
+        to_port     = 65535
+        protocol    = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    egress {
+        from_port   = 0
+        to_port     = 0
+        protocol    = "-1"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+}
+
+
 
 
 resource "aws_key_pair" "sshkey" {
@@ -46,7 +66,7 @@ resource "aws_key_pair" "sshkey" {
 resource "aws_instance" "cicd_instance" {
     ami = "ami-0fa91bc90632c73c9"
     instance_type = "t3.micro"
-    vpc_security_group_ids = [aws_security_group.basic_ssh.id] 
+    vpc_security_group_ids = [aws_security_group.basic_ssh.id, aws_security_group.basic_http.id] 
     key_name = aws_key_pair.sshkey.key_name
 
     user_data = <<-EOF
