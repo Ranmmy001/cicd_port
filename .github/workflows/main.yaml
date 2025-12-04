@@ -39,7 +39,7 @@ jobs:
           run: |
             echo "${{ secrets.SSH_KEY }}" >> "sshKey.pem"
             chmod 400 "sshKey.pem"
-            ssh -i "sshKey.pem" -o StrictHostKeyChecking=no ubuntu@13.60.250.87
+            ssh -i "sshKey.pem" -o StrictHostKeyChecking=no ubuntu@51.20.5.105
             docker --version
 
 
