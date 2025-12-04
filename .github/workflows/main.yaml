@@ -45,9 +45,9 @@ jobs:
 
         - name: stop the previous docker container running, pull the new image and run it as a container
           run: |
-            sudo docker stop olaranmmy/cicd_folio
-            sudo docker pull olaranmmy/cicd_folio
-            sudo docker run -d -p 1234:80 --name cicd_folio olaranmmy/cicd_folio
+            sudo docker stop olaranmmy/cicd_folio | true
+            sudo docker pull olaranmmy/cicd_folio | true
+            sudo docker run -d -p 1234:80 --name olarannycicd_folio olaranmmy/cicd_folio
             
 
 
