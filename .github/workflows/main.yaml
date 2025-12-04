@@ -39,17 +39,12 @@ jobs:
           run: |
             echo "${{ secrets.SSH_KEY }}" >> "sshKey.pem"
             chmod 400 "sshKey.pem"
-            ssh -i "sshKey.pem" -o StrictHostKeyChecking=no ubuntu@51.20.5.105
-            docker --version
-
-
-        - name: stop the previous docker container running, pull the new image and run it as a container
-          run: |
-            sudo docker stop olaranmmy/cicd_folio | true
-            sudo docker pull olaranmmy/cicd_folio | true
-            sudo docker run -d -p 1234:80 --name olarannycicd_folio olaranmmy/cicd_folio
-            
-
+            ssh -i "sshKey.pem" -o StrictHostKeyChecking=no ubuntu@51.20.193.205 "
+              sudo docker stop olaranmmy/cicd_folio | true
+              sudo docker pull olaranmmy/cicd_folio | true
+              sudo docker run -d -p 1234:80 --name cicd-portfolio olaranmmy/cicd_folio
+              sudo docker ps -a
+            "
 
     
 
